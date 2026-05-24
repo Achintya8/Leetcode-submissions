@@ -1,0 +1,26 @@
+class Solution {
+    public int minimumSwaps(int[] nums) {
+        int l = 0;
+        int r = nums.length - 1;
+        int cnt = 0;
+        
+        while (l < r) {
+            while (l < r && nums[r] == 0) {
+                r--;
+            }
+            if (l < r && nums[l] == 0) {
+                swap(nums, l, r);
+                cnt++;
+                r--; 
+            }
+            l++;
+        }
+        return cnt;
+    }
+
+    private void swap(int[] nums, int l, int r) {
+        int temp = nums[l];
+        nums[l] = nums[r];
+        nums[r] = temp;
+    }
+}
