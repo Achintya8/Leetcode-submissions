@@ -8,14 +8,14 @@ class Solution {
         for(int i=0;i<k;i++){
             sum+=nums[i];
         }
-        ans = sum/k;
+        ans = sum;
         int a=0;
         for(int j=k;j<nums.length;j++){
             sum -= nums[a];
             a++;
             sum+=nums[j];
-            ans = Math.max(ans,(sum/k));
+            ans = Math.max(ans,sum);
         }
-        return ans;
+        return ans/k;
     }
 }
